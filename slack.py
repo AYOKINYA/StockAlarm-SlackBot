@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+import time
 
 
 def get_price(codes):
@@ -50,8 +51,11 @@ def send_slack(strbuf):
         print(f"Got an error: {e.response['error']}")
 
 if __name__ == '__main__':
+    
     load_dotenv(verbose=True)
     codes = ["000660", 251270]
-    strbuf = get_price(codes)
-    print(strbuf)
-    send_slack(strbuf)
+    while True:
+        strbuf = get_price(codes)
+        print(strbuf)
+        send_slack(strbuf)
+        time.sleep(3600)
