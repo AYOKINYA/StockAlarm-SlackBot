@@ -1,3 +1,5 @@
+<h3>네이버 금융 페이지에서 현재 주식 가격을 가져와 알려주는 슬랙봇</h3>
+
 requirements :
 
 Python version: 3.6+
